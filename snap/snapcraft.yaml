@@ -1,0 +1,38 @@
+name: nvme-cli
+base: core20
+# version: replace-me
+adopt-info: nvme-cli
+summary: NVMe management command line interface
+description:
+  nvme-cli is a NVMe management command line interface. NVM Express™ (NVMe™)
+  is a specification defining how host software communicates with non-volatile
+  memory across a PCI Express® (PCIe®) bus. It is the industry standard
+  for PCIe solid state drives (SSDs) in all form factors (U.2, M.2, AIC, EDSFF).
+
+grade: stable
+confinement: strict
+
+apps:
+  nvme-cli:
+    command: usr/sbin/nvme
+    plugs:
+      - home
+      - block-devices
+      - system-observe
+      - hardware-observe
+      # TODO: sometimes nvme-cli needs net_admin?
+      # - network-control
+
+parts:
+  nvme-cli:
+    plugin: make
+    source: https://github.com/linux-nvme/nvme-cli.git
+    build-packages:
+      - pkg-config
+      - uuid-runtime
+      - uuid-dev
+    stage-packages:
+      - libuuid1
+    override-pull: |
+      snapcraftctl pull
+      snapcraftctl set-version $(git describe --tags)
