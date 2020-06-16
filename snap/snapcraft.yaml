@@ -20,8 +20,6 @@ apps:
       - block-devices
       - system-observe
       - hardware-observe
-      # TODO: sometimes nvme-cli needs net_admin?
-      # - network-control
 
 parts:
   nvme-cli:
