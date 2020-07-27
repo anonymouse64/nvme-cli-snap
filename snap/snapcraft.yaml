@@ -8,6 +8,14 @@ description:
   memory across a PCI Express® (PCIe®) bus. It is the industry standard
   for PCIe solid state drives (SSDs) in all form factors (U.2, M.2, AIC, EDSFF).
 
+architectures:
+  # no i386 on core20
+  # fails to compile on ppc64el, see https://github.com/linux-nvme/nvme-cli/issues/784
+  - build-on: amd64
+  - build-on: armhf
+  - build-on: arm64
+  - build-on: s390x
+
 grade: stable
 confinement: strict
 
