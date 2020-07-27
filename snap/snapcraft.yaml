@@ -22,6 +22,8 @@ confinement: strict
 apps:
   nvme-cli:
     command: usr/sbin/nvme
+    command-chain:
+      - connections-check.sh
     plugs:
       - home
       - block-devices
@@ -29,6 +31,11 @@ apps:
       - hardware-observe
 
 parts:
+  local-scripts:
+    plugin: dump
+    source: .
+    prime:
+      - connections-check.sh
   nvme-cli:
     plugin: make
     source: https://github.com/linux-nvme/nvme-cli.git
