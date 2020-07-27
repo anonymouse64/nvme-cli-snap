@@ -1,6 +1,5 @@
 name: nvme-cli
 base: core20
-# version: replace-me
 adopt-info: nvme-cli
 summary: NVMe management command line interface
 description:
