@@ -9,8 +9,9 @@ description:
   for PCIe solid state drives (SSDs) in all form factors (U.2, M.2, AIC, EDSFF).
 
 architectures:
-  # no i386 on core20
-  # fails to compile on ppc64el, see https://github.com/linux-nvme/nvme-cli/issues/784
+  # no i386 on core20, eventually launchpad i.e. snapcraft.io/build should be
+  # smart enough to figure this out, but until then we list all the arches
+  # except i386, see https://bugs.launchpad.net/launchpad/+bug/1862258
   - build-on: ppc64el
   - build-on: amd64
   - build-on: armhf
