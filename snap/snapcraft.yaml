@@ -11,6 +11,7 @@ description:
 architectures:
   # no i386 on core20
   # fails to compile on ppc64el, see https://github.com/linux-nvme/nvme-cli/issues/784
+  - build-on: ppc64el
   - build-on: amd64
   - build-on: armhf
   - build-on: arm64
