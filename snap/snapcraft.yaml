@@ -21,11 +21,9 @@ architectures:
 grade: stable
 confinement: strict
 
-# TODO: this snap working properly really depends on snapd 2.46, to get the fix
-# from https://github.com/snapcore/snapd/pull/8724, but since there is not a
-# snapd 2.46 yet, just use 2.45 in the interim, so that folks can use edge
-# snapd until 2.46 is released
-assumes: [snapd2.45]
+# needs snapd 2.46 for the fix: https://github.com/snapcore/snapd/pull/8724 to
+# the block-devices interface
+assumes: [snapd2.46]
 
 apps:
   nvme-cli:
